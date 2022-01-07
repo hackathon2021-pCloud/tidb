@@ -65,7 +65,7 @@ func (pp *ProgressPrinter) goPrintProgress(
 	if pp.redirectLog || testWriter != nil {
 		tmpl := `{"P":"{{percent .}}","C":"{{counters . }}","E":"{{etime .}}","R":"{{rtime .}}","S":"{{speed .}}"}`
 		bar.SetTemplateString(tmpl)
-		bar.SetRefreshRate(2 * time.Minute)
+		bar.SetRefreshRate(5 * time.Second)
 		bar.Set(pb.Static, false)       // Do not update automatically
 		bar.Set(pb.ReturnSymbol, false) // Do not append '\r'
 		bar.Set(pb.Terminal, false)     // Do not use terminal width
